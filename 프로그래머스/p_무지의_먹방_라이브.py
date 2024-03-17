@@ -21,9 +21,31 @@ def solution(food_times, k):
             break
     return answer
 
-# 효율성 챙기기
+# 효율성 챙기기(우선 순위 큐를 이용)
+import heapq
 
-
+def solution(food_times, k):
+    if sum(food_times) <= k:
+        return -1
+    
+    q = []
+    for i in range(len(food_times)):
+        heapq.heappush(q, (food_times[i], i+1)) # (음식 시간, 음식 번호)
+        
+    sum_value = 0 # 먹기 위해 사용한 시간
+    previous = 0 # 직전에 다 먹은 음식 시간
+    length = len(food_times) # 남은 음식의 개수
+    
+    while sum_value + ((q[0][0] - previous) * length) <= k:
+        now = heapq.heappop(q)[0]
+        sum_value += (now - previous) * length # 만약 같은 값을 가지는 음식이 뒤에 있다면 0이 되어 length만 줄어듦.
+        length -= 1
+        previous = now
+    
+    result = sorted(q, key=lambda x: x[1])
+    return result[(k - sum_value) % length][1]
+        
+        
 ## test 용
 
 food_times = list(map(int, input().split()))
