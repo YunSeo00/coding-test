@@ -34,7 +34,7 @@
 # print(result)
 
 # 접근2
-# todo: 위의 코드를 더 효율적으로 만들기 (1개의 리스트로도 구현 가능함.)
+# 위의 코드를 더 효율적으로 만들기 (1개의 리스트로도 구현 가능함.)
 n, k = map(int, input().split())
 coins = [int(input()) for _ in range(n)]
 
