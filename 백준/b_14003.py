@@ -1,4 +1,4 @@
-# 가장 긴 증가하는 부분 수열 2, 3, 4, 5 - 이진탐색 - lis algorithm ***
+# 가장 긴 증가하는 부분 수열 0, 2, 3, 4, 5 - 이진탐색 - lis algorithm ***
 
 # dp - O(n^2)
 # n = int(input())
